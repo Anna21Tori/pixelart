@@ -20,8 +20,5 @@ var Main = {
     reset : function(){
         this.table.innerHTML = '';
         this.init();
-    },
-    paint: function(col){
-        col.style.background = document.getElementById("color-input").value;
     }
 }
