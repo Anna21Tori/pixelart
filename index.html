@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PixelArt</title>
+        <meta name="description" content="PixelArt application - create your own awesome image">
+        <meta name="keywords" content="Pixel, Art, Paint">
+        <meta name="author" content="Anna Dybel">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- CSS file -->
+        <link rel="stylesheet" href="style/style.css">
+        <script src="js/main.js"></script>
+        <script src="js/pixel.js"></script>
+    </head>
+    <body>
+        <header id="border-line">
+            <nav>
+                <h1 id="name-app">PixelArt</h1>
+                <ul class="tools">
+                    <li class="nav-right"><a href="#" class="hover-nav" onclick="main.reset()">Reset</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id='main'>
+            <div id="panel">
+                <label for="color-input">Choose color:</label>
+                <input type="color" id="color-input" name="color-input" value="#e66465">
+            </div>
+            <div id="canvas">
+                <div id="table">
+                </div>
+            </div>
+        </div>
+    </body>
+        <script>
+            var main = Main;
+            main.init(document.getElementById("table"));
+        </script>
+</html>
