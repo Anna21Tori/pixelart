@@ -10,6 +10,8 @@
         
         <!-- CSS file -->
         <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- JS file -->
         <script src="js/main.js"></script>
         <script src="js/pixel.js"></script>
     </head>
@@ -26,6 +28,8 @@
             <div id="panel">
                 <label for="color-input">Choose color:</label>
                 <input type="color" id="color-input" name="color-input" value="#e66465">
+                <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
+                <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
             </div>
             <div id="canvas">
                 <div id="table">

@@ -1,6 +1,7 @@
 var Main = {
     table: null,
     init : function(table){
+            this.enabledBrush();
             this.table = document.getElementById("table");
             for(var i=0; i<50;i++){
                 var row = document.createElement("div");
@@ -19,6 +20,20 @@ var Main = {
     },
     reset : function(){
         this.table.innerHTML = '';
+        this.resetColorToolsPaint();
         this.init();
+    },
+    enabledBrush: function(){
+        document.getElementById("brush").style.color = "deeppink";
+    },
+    resetColorToolsPaint: function(){
+        var tools = document.getElementsByClassName("tools-paint");
+        for(var i=0;i<tools.length;i++){
+            tools[i].style.color = "black";
+        }
+    },
+    setEnabled: function(e){
+        this.resetColorToolsPaint();
+        e.style.color = "deeppink";
     }
 }
