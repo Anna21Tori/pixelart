@@ -6,8 +6,8 @@ var Main = {
             this.table = document.getElementById("table");
             this.pixels = [];
             for(var i=0; i<50;i++){
-                var row = document.createElement("div");
-                row.classList.add("row-div");
+//                var row = document.createElement("div");
+//                row.classList.add("row-div");
                 for(var j=0; j<50;j++){
                     var col = document.createElement("div");
                     col.classList.add("col-div");
@@ -45,9 +45,10 @@ var Main = {
                         document.getElementById("color-input").value = hex//this.style.backgroundColor;
                         
                     });
-                    row.appendChild(col);
+//                    row.appendChild(col);
+                    this.table.appendChild(col);
                 }
-            this.table.appendChild(row);
+            
             }
          console.log(this.pixels)
         document.cookie = "pixels= ok"//+this.pixels;
@@ -76,5 +77,34 @@ var Main = {
         idRow: idR,
         color: col
         }
-    }
+    },
+    rgbWheel: function(){
+        var c = document.getElementById("rgb-wheel");
+        var ctx = c.getContext("2d");
+        var canvasInfo = c.getBoundingClientRect();
+        
+        var grd = ctx.createLinearGradient(0, 0, c.offsetWidth*0.8, 0);
+        grd.addColorStop(0, "black");
+        grd.addColorStop("0.3", "magenta");
+        grd.addColorStop("0.5", "blue");
+        grd.addColorStop("0.6", "green");
+        grd.addColorStop("0.8", "yellow");
+        grd.addColorStop(1, "red");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, c.width, c.height); 
+    },
+    colorCanvas: function(){
+        var c = document.getElementById("color");
+        var ctx = c.getContext("2d");
+        var canvasInfo = c.getBoundingClientRect();
+        var hue = 2;
+        for(var row=0; row<c.height; row++){
+            var grad = ctx.createLinearGradient(0, 0, c.width,0);
+            grad.addColorStop(0, 'hsl('+hue+', 100%, '+(100-((100*row)/c.height))+'%)');
+            grad.addColorStop(1, 'hsl('+hue+', 0%, '+(100-((100*row)/c.height))+'%)');
+            ctx.fillStyle=grad;
+            ctx.fillRect(0, row, c.width, 1);
+      }	
+    } 
 }

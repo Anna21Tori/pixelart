@@ -2,85 +2,92 @@
   font-family: pixelFont;
   src: url(../fonts/pixel-font.ttf);
 }
+$color-primary: rgb(255, 20, 147);
+$color-fonts: rgb(0, 0, 0);
+$margin: 1em;
+$canvas-width: 300px;
+$canvas-height:300px;
 *{
     font-family: sans-serif;
 }
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: rgb(211, 204, 204) solid 1px;
+    
+    a{
+        text-decoration: none;
+        color: $color-fonts;
+        cursor: pointer;
+        &:hover{
+            color: $color-primary; 
+        }
+    }
+}
 #name-app{
-    text-align: left !important;
-    color: deeppink;
+    color: $color-primary;
     font-family: pixelFont;
     font-size:40px;
-    margin:0;
-    width:50%;
     font-weight: 100;
   
 }
-#border-line{
-      border-bottom: rgb(211, 204, 204) solid 1px;
-}
-nav > ul > li > a{
-    text-decoration: none;
-    color: black;
-}
-.hover-nav:hover{
-     border-bottom: rgb(211, 204, 204) solid 1px;
-     color: deeppink; 
-}
 
-nav > ul{
-     list-style-type: none;
-     margin: 0;
-     padding: 0;
-     overflow: hidden;
-     width:50%;
-}
-
-nav > ul> li a {
-  display: block;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-nav > ul> li {
-  float: right;
- margin-right: 2px;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 #main{
-    margin:1em;
-  
-}
-#canvas{
-    display:flex;
+    margin:$margin;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin:1em;
 }
+
 #table{
     width:600px;
-    height: 600px;
-    display: table-row;
-}
-.col-div{
+    margin-top: $margin;
+    display: flex;
+    flex-wrap: wrap;
+    
+    div{
     border: 1px solid rgb(188, 184, 184);
-    width: 12px;
+    width: 10px;
     height: 10px;
     padding: 0;
     margin: 0;
-    background-color: rgb(255, 255, 255);
-}
-.row-div{
-    display:flex;
+    background-color: rgb(255, 255, 255); 
+    }
 }
 #panel{
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    width:600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgb(188, 184, 184);
 }
-#panel > *{
-    margin-right: 1em;
+
+#color-picker{
+    width:$canvas-width*2;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(188, 184, 184);
+    @for $i from 1 to 3{
+        #col-#{$i}{
+        
+         width: $canvas-width*0.90;
+        padding: $canvas-width*0.05;
+            div{
+                 width: $canvas-width*0.90;
+            }
+        }
+    }
+  
+    canvas{
+       width: $canvas-width*0.90;
+       height: $canvas-height*0.1;
+       border-radius: 5px;
+    }
+}
+   
+#color{
+    height: $canvas-height*0.5 !important;
 }

@@ -11,24 +11,36 @@
         <!-- CSS file -->
         <link rel="stylesheet" href="css/styles.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <!-- JS file -->
         <script src="js/index.min.js"></script>
     </head>
     <body>
-        <header id="border-line">
+        <header>
             <nav>
-                <h1 id="name-app">PixelArt</h1>
-                <ul class="tools">
-                    <li class="nav-right"><a href="#" class="hover-nav" onclick="main.reset()">Reset</a></li>
-                </ul>
+                <a id="name-app">PixelArt</a>
+                <a href="#" class="item-menu" onclick="main.reset()">Reset</a>
             </nav>
         </header>
         <div id='main'>
             <div id="panel">
-                <label for="color-input">Choose color:</label>
-                <input type="color" id="color-input" name="color-input" value="#e66465">
-                <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
-                <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
+                <div>
+                    <i class="fas fa-palette tools-paint" onclick="main.setEnabled(this)"></i>
+                </div>
+                <div>
+                    <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
+                    <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
+                </div>
+            </div>
+            <div id="color-picker">
+                <div id="col-1">
+                    <canvas id="color"></canvas>
+                </div>
+                <div id="col-2">
+                    <div id="adjust">
+                        <canvas id="rgb-wheel"></canvas>
+                    </div>
+                </div> 
             </div>
             <div id="canvas">
                 <div id="table">
@@ -39,5 +51,7 @@
         <script>
             var main = Main;
             main.init(document.getElementById("table"));
+            main.rgbWheel();
+            main.colorCanvas();
         </script>
 </html>
