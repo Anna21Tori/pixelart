@@ -1,14 +1,18 @@
 var Main = {
     table: null,
+    pixels: [],
     init : function(table){
             this.enabledBrush();
             this.table = document.getElementById("table");
+            this.pixels = [];
             for(var i=0; i<50;i++){
                 var row = document.createElement("div");
                 row.classList.add("row-div");
                 for(var j=0; j<50;j++){
                     var col = document.createElement("div");
                     col.classList.add("col-div");
+                    this.pixels[this.pixels.length] = this.addNewPixel(j, i, "rgb(255,255,255)");
+                   
                     //change color any "pixel" after click
                     col.addEventListener("click", function(){
                         var tools = document.getElementsByClassName("tools-paint");
@@ -19,6 +23,7 @@ var Main = {
                                     return;
                                 }
                         }
+                        console.log(this.style.backgroundColor)
                         //convert rgb to hex
                         var rgb = this.style.backgroundColor;
                         var sep = rgb.indexOf(",") > -1 ? "," : " ";
@@ -44,6 +49,8 @@ var Main = {
                 }
             this.table.appendChild(row);
             }
+         console.log(this.pixels)
+        document.cookie = "pixels= ok"//+this.pixels;
     },
     reset : function(){
         this.table.innerHTML = '';
@@ -62,5 +69,12 @@ var Main = {
     setEnabled: function(e){
         this.resetColorToolsPaint();
         e.style.color = "deeppink";
+    },
+    addNewPixel: function(idC, idR, col){
+        return {
+        idCol: idC,
+        idRow: idR,
+        color: col
+        }
     }
 }

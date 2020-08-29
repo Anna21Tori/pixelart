@@ -61,16 +61,17 @@ nav{
     margin:1em;
 }
 #table{
-    width:500px;
-    height: 500px;
+    width:600px;
+    height: 600px;
     display: table-row;
 }
 .col-div{
     border: 1px solid rgb(188, 184, 184);
-    width: 10px;
+    width: 12px;
     height: 10px;
     padding: 0;
     margin: 0;
+    background-color: rgb(255, 255, 255);
 }
 .row-div{
     display:flex;
