@@ -1,6 +1,6 @@
 @font-face {
   font-family: pixelFont;
-  src: url(../font/pixel-font.ttf);
+  src: url(../fonts/pixel-font.ttf);
 }
 *{
     font-family: sans-serif;

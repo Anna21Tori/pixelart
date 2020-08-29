@@ -1,0 +1,86 @@
+@font-face {
+  font-family: pixelFont;
+  src: url(../fonts/pixel-font.ttf);
+}
+*{
+    font-family: sans-serif;
+}
+#name-app{
+    text-align: left !important;
+    color: deeppink;
+    font-family: pixelFont;
+    font-size:40px;
+    margin:0;
+    width:50%;
+    font-weight: 100;
+  
+}
+#border-line{
+      border-bottom: rgb(211, 204, 204) solid 1px;
+}
+nav > ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+.hover-nav:hover{
+     border-bottom: rgb(211, 204, 204) solid 1px;
+     color: deeppink; 
+}
+
+nav > ul{
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     width:50%;
+}
+
+nav > ul> li a {
+  display: block;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+nav > ul> li {
+  float: right;
+ margin-right: 2px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main{
+    margin:1em;
+  
+}
+#canvas{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:1em;
+}
+#table{
+    width:600px;
+    height: 600px;
+    display: table-row;
+}
+.col-div{
+    border: 1px solid rgb(188, 184, 184);
+    width: 12px;
+    height: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+.row-div{
+    display:flex;
+}
+#panel{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+#panel > *{
+    margin-right: 1em;
+}
