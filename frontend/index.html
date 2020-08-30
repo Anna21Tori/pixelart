@@ -24,25 +24,27 @@
         </header>
         <div id='main'>
             <div id="panel">
-                <div>
-                    <i class="fas fa-palette tools-paint" onclick="main.setEnabled(this)"></i>
-                </div>
-                <div>
-                    <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
-                    <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
-                </div>
+                    <div>
+                        <i class="fas fa-palette tools-paint" onclick="main.setEnabled(this)"></i>
+                    </div>
+                    <div>
+                        <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
+                        <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
+                    </div>
             </div>
             <div id="color-picker">
                 <div id="col-1">
-                    <canvas id="color"></canvas>
+                    <canvas width="360" height="300" id="color"></canvas>
                 </div>
                 <div id="col-2">
                     <div id="adjust">
-                        <canvas id="rgb-wheel"></canvas>
+                        <i class='fas fa-angle-left' onclick="main.changePositionLeft()"></i>
+                        <canvas id="rgb-wheel" ondrag="main.dragStrokView(event)" width="360" height="30"></canvas>
+                        <i class='fas fa-angle-right' onclick="main.changePositionRight()"></i>
                     </div>
                 </div> 
             </div>
-            <div id="canvas">
+            <div>
                 <div id="table">
                 </div>
             </div>
@@ -52,6 +54,6 @@
             var main = Main;
             main.init(document.getElementById("table"));
             main.rgbWheel();
-            main.colorCanvas();
+           // main.drawCanvas();
         </script>
 </html>

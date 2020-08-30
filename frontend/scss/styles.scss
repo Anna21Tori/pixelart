@@ -5,8 +5,8 @@
 $color-primary: rgb(255, 20, 147);
 $color-fonts: rgb(0, 0, 0);
 $margin: 1em;
-$canvas-width: 300px;
 $canvas-height:300px;
+$base-width:600px;
 *{
     font-family: sans-serif;
 }
@@ -37,8 +37,10 @@ nav{
 #main{
     margin:$margin;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
+    justify-content: space-around;
+    
 }
 
 #table{
@@ -66,28 +68,28 @@ nav{
 }
 
 #color-picker{
-    width:$canvas-width*2;
+    width:$base-width;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-bottom: 1px solid rgb(188, 184, 184);
+    
     @for $i from 1 to 3{
         #col-#{$i}{
-        
-         width: $canvas-width*0.90;
-        padding: $canvas-width*0.05;
-            div{
-                 width: $canvas-width*0.90;
-            }
+            padding-top: $base-width* 0.01;
         }
-    }
-  
-    canvas{
-       width: $canvas-width*0.90;
-       height: $canvas-height*0.1;
-       border-radius: 5px;
     }
 }
    
 #color{
-    height: $canvas-height*0.5 !important;
+    
+    border-radius: 5px;
+    border:solid 1px mix(rgb(0, 0, 0), rgb(255, 255, 255), 15);
+}
+
+#adjust{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
