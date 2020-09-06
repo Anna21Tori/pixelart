@@ -14,6 +14,8 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <!-- JS file -->
         <script src="js/index.min.js"></script>
+        <script src="js/action.min.js"></script>
+        <script src="js/colorPicker.js"></script>
     </head>
     <body>
         <header>
@@ -29,18 +31,21 @@
                     </div>
                     <div>
                         <i class="fa fa-paint-brush tools-paint" id="brush" onclick="main.setEnabled(this)"></i>
-                        <i class="fa fa-eyedropper tools-paint" onclick="main.setEnabled(this)"></i>
+                        <i class="fa fa-eyedropper tools-paint" id="eyedropper" onclick="main.setEnabled(this)"></i>
                     </div>
             </div>
             <div id="color-picker">
                 <div id="col-1">
-                    <canvas width="360" height="300" id="color"></canvas>
+                    <canvas width="360" height="300" id="color">
+                        
+                    </canvas>
                 </div>
                 <div id="col-2">
                     <div id="adjust">
-                        <i class='fas fa-angle-left' onclick="main.changePositionLeft()"></i>
-                        <canvas id="rgb-wheel" ondrag="main.dragStrokView(event)" width="360" height="30"></canvas>
-                        <i class='fas fa-angle-right' onclick="main.changePositionRight()"></i>
+                        <i class='fas fa-angle-left arrow' onclick="colorPicker.changePosition(-1)"></i>
+                        <canvas id="rgb-wheel" width="360" height="30" >
+                        </canvas>
+                        <i class='fas fa-angle-right arrow' onclick="colorPicker.changePosition(1)"></i>
                     </div>
                 </div> 
             </div>
@@ -51,9 +56,11 @@
         </div>
     </body>
         <script>
-            var main = Main;
-            main.init(document.getElementById("table"));
-            main.rgbWheel();
+            let main = Main;
+            let colorPicker = ColorPicker;
+            main.init();
+//            main.initColorPicker();
+            colorPicker.rgbWheel();
            // main.drawCanvas();
         </script>
 </html>
